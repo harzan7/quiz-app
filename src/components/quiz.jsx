@@ -22,7 +22,31 @@ function Quiz() {
             answer: "JavaScript XML",
         },
     ]
-    return <div>Quiz</div>
+
+    var optionSelected = "None";
+
+    function handleSelectOption(option) {
+        console.log(option)
+        optionSelected = option;
+    }
+
+    return (
+        <div>
+            <h2>Question 1</h2>
+            <p className={'question'}>{questionBank[0].question}</p>
+
+            {questionBank[0].options.map( (option) => (
+                <button className={'option'} onClick={() => handleSelectOption(option)}>{option}</button>
+            ))}
+
+            <p>Option Selected: {optionSelected}</p>
+
+            <div className={'nav-buttons'}>
+                <button>Previous</button>
+                <button>Next</button>
+            </div>
+        </div>
+    )
 }
 
 export default Quiz;
