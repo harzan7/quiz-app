@@ -24,13 +24,17 @@ function Quiz() {
         },
     ]
 
-    const [optionSelected, setOptionSelected] = useState("None")
+    const initialAnswers = [null, null, null]
+
+    const [userAnswers, setUserAnswers] = useState(initialAnswers)
 
     const [currentQuestion, setCurrentQuestion] = useState(0)
 
     function handleSelectOption(option) {
-        console.log(option)
-        setOptionSelected(option)
+        const newUserAnswers = [...userAnswers]
+        newUserAnswers[currentQuestion] = option
+
+        setUserAnswers(newUserAnswers)
     }
 
     return (
