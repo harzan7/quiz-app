@@ -1,3 +1,4 @@
+import {useState} from "react";
 
 function Quiz() {
     const questionBank = [
@@ -23,11 +24,11 @@ function Quiz() {
         },
     ]
 
-    var optionSelected = "None";
+    const [optionSelected, setOptionSelected] = useState("None")
 
     function handleSelectOption(option) {
         console.log(option)
-        optionSelected = option;
+        setOptionSelected(option)
     }
 
     return (
