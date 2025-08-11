@@ -54,8 +54,14 @@ function Quiz() {
         }
     }
 
+    function restartQuiz() {
+        setUserAnswers(initialAnswers)
+        setCurrentQuestion(0)
+        setIsQuizFinished(false)
+    }
+
     if (isQuizFinished) {
-        return <Results questionBank={questionBank} userAnswers={userAnswers} />
+        return <Results questionBank={questionBank} userAnswers={userAnswers} restartQuiz={restartQuiz}/>
     }
 
     return (
